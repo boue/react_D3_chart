@@ -1,5 +1,7 @@
 var d3Chart = {};
 
+d3.select("body").append("p").text("New paragraph!");
+
 d3Chart.create = function(el, props, state) {
   var svg = d3.select(el).append('svg')
       .attr('class', 'd3')
