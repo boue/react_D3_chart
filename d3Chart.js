@@ -4,6 +4,7 @@ d3.select("body").append("p").text("Test D3!");
 
 d3Chart.create = function(el, props, state) {
   var svg = d3.select(el).append('svg')
+      //'.attr' allows to set custom HTML attributes
       .attr('class', 'd3')
       .attr('width', props.width)
       .attr('height', props.height);
