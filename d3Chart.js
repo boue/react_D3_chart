@@ -1,3 +1,4 @@
+//public interface
 var d3Chart = {};
 
 d3.select("body").append("p").text("Test D3!");
