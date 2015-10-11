@@ -3,6 +3,7 @@ var d3Chart = {};
 
 d3.select("body").append("p").text("Test D3!");
 
+//hooks with React lifecycle methods
 d3Chart.create = function(el, props, state) {
   var svg = d3.select(el).append('svg')
       //'.attr' allows to set custom HTML attributes

@@ -6,6 +6,9 @@ var Chart = React.createClass({
     domain: React.PropTypes.object
   },
 
+  //we hook into React's lifecycle methods componentDidMount, componentDidUpdate, 
+  //componentWillUnmount, which fit well with our D3 chart's create, update, 
+  //destroy functions.
   componentDidMount: function(){
     var el = this.getDOMNode();
     d3Chart.create(el, {
@@ -27,4 +30,14 @@ var Chart = React.createClass({
     };
   },
 
+  componentWillUnmount: function(){
+    var el = this.getDOMNode();
+    d3Chart.destroy(el);
+  },
+
+  render: function(){
+    return (
+      <div className="Chart"></div>
+    );
+  }
 });
