@@ -15,5 +15,29 @@ var Pagination = React.createClass({
       </p>
     );
   },
-  
+
+  handlePrevious: function(e){
+    e.preventDefault();
+    this.shiftData(-20);
+  },
+
+  handleNext: function(e){
+    e.preventDefault();
+    this.shiftData(+20);
+  },
+
+  shiftData: function(step){
+    //_.cloneDeep to deep-clone the javascript object
+    var newDomain = _.cloneDeep(this.props.domain);
+    //Loop through a collection and return a deeply-nested
+    //property from each item
+    newDomain.x = _.map(newDomain.x, function(x){
+      return x + step;
+    });
+    var newData = this.props.getData(newDomain);
+    this.props.setAppState({
+      data: newData,
+      domain: newDomain
+    });
+  }
 });
