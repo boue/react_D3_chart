@@ -13,4 +13,18 @@ var Chart = React.createClass({
       height: '300px'
     }, this.getChartState());
   },
+
+  componentDidUpdate: function(){
+    //selects element and adds the object returned from getChartState
+    var el = this.getDOMNode();
+    d3Chart.update(el, this.getChartState());
+  },
+
+  getChartState: function(){
+    return {
+      data: this.props.data,
+      domain: this.props.domain
+    };
+  },
+
 });
